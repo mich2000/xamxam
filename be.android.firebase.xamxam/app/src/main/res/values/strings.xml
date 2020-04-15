@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Xam-Xam</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="SignIn">Sign-in to xam-xam</string>
+    <string name="peremption_date_product">peremption date of productUnits</string>
+    <string name="amount_product">amount productUnits</string>
+    <string name="name_product">name</string>
+    <string name="name_storage">storage name</string>
+    <string name="see_products">See productUnits</string>
+    <string name="amount">amount</string>
+    <string name="notify_products">channel_notify_bad_products</string>
+    <string name="notify_products_description">channel used specifically to notify users
+    of bad products</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="update_name">Update name</string>
+    <string name="update_password">Reset password</string>
+    <string name="delete_profile">Delete Profile</string>
+</resources>

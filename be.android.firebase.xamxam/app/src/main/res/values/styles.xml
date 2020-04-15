@@ -1,0 +1,60 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="recyclerItemLayout">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:padding">1dp</item>
+    </style>
+
+    <style name="fabStyle">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_margin">20sp</item>
+    </style>
+
+    <style name="styleTitle">
+        <item name="android:foregroundTint">@color/darkGreen</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">20sp</item>
+        <item name="android:layout_marginBottom">20sp</item>
+        <item name="android:padding">20sp</item>
+        <item name="android:background">@color/lightGreen</item>
+    </style>
+
+    <style name="styleStat">
+        <item name="android:foregroundTint">@color/colorPrimaryDark</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">14sp</item>
+        <item name="android:layout_marginBottom">14sp</item>
+        <item name="android:padding">14sp</item>
+    </style>
+    
+    <style name="ProfileSettigs">
+        <item name="android:foregroundTint">@color/colorPrimaryDark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">12sp</item>
+        <item name="android:layout_marginBottom">12sp</item>
+        <item name="android:padding">12sp</item>
+    </style>
+
+    <style name="profileBtn">
+        <item name="android:layout_marginTop">20sp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/round_btn</item>
+        <item name="android:padding">10sp</item>
+
+        <item name="android:textAlignment">center</item></style>
+</resources>

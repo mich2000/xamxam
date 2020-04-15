@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/recyclerItemLayout">
+    <!--
+    link to add icons in recyclerview: https://stackoverflow.com/questions/43263314/not-able-to-change-the-icon-in-recyclerview-android
+    -->
+    <TextView
+        android:id="@+id/txtStorage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp" />
+
+</LinearLayout>

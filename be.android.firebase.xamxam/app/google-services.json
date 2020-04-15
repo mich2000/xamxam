@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "613826262156",
+    "firebase_url": "https://xam-xam.firebaseio.com",
+    "project_id": "xam-xam",
+    "storage_bucket": "xam-xam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613826262156:android:e44a01d74c3eb0fdadf7a9",
+        "android_client_info": {
+          "package_name": "be.android.firebase.xamxam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613826262156-skkghrpk72niq69mtvu9m05usvna9n32.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "be.android.firebase.xamxam",
+            "certificate_hash": "4df7c7376836bbabbdf94c234ed7be6b327bc086"
+          }
+        },
+        {
+          "client_id": "613826262156-mgltunptu5aae1uj27hia8kvlbp3qdtj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_X2AxNPlslP-4Cv21jIKONPhhgiy4ZC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613826262156-mgltunptu5aae1uj27hia8kvlbp3qdtj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

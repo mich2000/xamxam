@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
+    <!--
+        link for evenly distributing elements in constraintlayout: https://stackoverflow.com/questions/37518745/evenly-spacing-views-using-constraintlayout
+        link for scrollview: https://stackoverflow.com/questions/4259607/if-scrollview-only-supports-one-direct-child-how-am-i-supposed-to-make-a-whole
+        link for calendarView: https://abhiandroid.com/ui/calendarview
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/name_product"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/txt_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/amount"
+            android:inputType="number"/>
+        <Spinner
+            android:id="@+id/spinnerCategoryProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <CalendarView
+            android:id="@+id/txt_peremption_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
