@@ -3,3 +3,6 @@ be.android.firebase.xamxam/gradle/
 be.android.firebase.xamxam/.idea/
 be.android.firebase.xamxam/.build/
 be.android.firebase.xamxam/xam-xam.iml
+be.android.firebase.xamxam/settings.gradle
+be.android.firebase.xamxam/gradle.properties
+be.android.firebase.xamxam/gradlew
