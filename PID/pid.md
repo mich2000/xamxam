@@ -50,11 +50,15 @@ Andere parameters als bv hun nutritieve waarden worden niet bijgehouden.
     * Services
     * Filters
 
-### Backend(Firebase)
+### Backend (Firebase)
 
 * Gebruik maken outlook of email als authenticatie provider binnen Firebase.
 * Voor de database gebruik ik Firebase Firestore.
 * Cloud functions voor het verwijderen en toevoegen van gebruikers, hetzelfde doen voor hun respectieve document.
+
+## Deployment (Publiceren van de app)
+
+Als publicatie platform heb ik Amazon app store gekozen, omdat deze gratis is.
 
 ## Wat heb ik geleerd ?
 

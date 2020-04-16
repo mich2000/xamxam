@@ -3,16 +3,15 @@
     package="be.android.firebase.xamxam">
 
     <application
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_xamxam_foreground"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_xamxam_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
             android:name=".storages.StorageService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
