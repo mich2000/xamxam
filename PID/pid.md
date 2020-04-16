@@ -48,7 +48,7 @@ Andere parameters als bv hun nutritieve waarden worden niet bijgehouden.
     * Data klasses
     * Meer geavanceerde dialoogvensters
     * Services
-    * Filters
+    * SearchView om te filteren
 
 ### Backend (Firebase)
 
@@ -58,8 +58,15 @@ Andere parameters als bv hun nutritieve waarden worden niet bijgehouden.
 
 ## Deployment (Publiceren van de app)
 
-Als publicatie platform heb ik Amazon app store gekozen, omdat deze gratis is.
+Als publicatie platform heb ik Amazon app store gekozen, omdat deze gratis is. Bij deze zal ik ook mij logo en een paar screenshots van mijn app publiceren.
 
 ## Wat heb ik geleerd ?
 
-* 
+* Hoe ik een app in amazon app store kan publiceren.
+* Hoe ik een recyclerview kan filteren wanneer een searchview verandert.
+* Hoe ik geavanceerde dialoogvensters kan maken en gebruiken.
+* Hoe ik een snack kan maken laten tonen en een action te implementeren in zijn button.
+* Hoe ik een service kan laten lopen.
+* Hoe ik Firebase kan gebruiken voor de authenticatie zijde.
+* Document-gebasseerde database van Firebase Firestore.
+* Hoe ik cloud functions(serverless functies) kan gebruiken in mijn firebase backend.
