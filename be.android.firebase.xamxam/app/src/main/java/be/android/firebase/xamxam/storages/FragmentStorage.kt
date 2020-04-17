@@ -83,10 +83,10 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     private fun touchStorage(){
         storageAdapter.storageShowLongClick = { i: Int, _ ->
             val storageName = Handy.xamXamUser!!.storages[i].name
-            Handy.inputDialog(activity!!,"Edit storage name",storageName) {
+            Handy.inputDialog(requireActivity(),"Edit storage name",storageName) {
                 if(Handy.xamXamUser!!.changeStorageName(i, it)){
                     updateDocumentStorages {
-                        Handy.snack(activity!!,"Storage has been edited: $storageName to $it", true)
+                        Handy.snack(requireActivity(),"Storage has been edited: $storageName to $it", true)
                         notifyStorageChange(i)
                     }
                 }
@@ -116,23 +116,23 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
             docUser.get().addOnSuccessListener { documentSnapshot ->
                 if(documentSnapshot != null) {
                         Handy.xamXamUser = documentSnapshot.toObject(XamUser::class.java)!!
-                        Handy.editTitle(activity!!,auth.currentUser!!.displayName!!)
+                        Handy.editTitle(requireActivity(),auth.currentUser!!.displayName!!)
                         makeRecyclerAdapter()
                         implementAddStorageFABbtn()
                         setRecyclerViewItemTouchListener()
                         implementSeeProducts()
-                        StorageService.enqueueWork(context!!, Intent())
+                        StorageService.enqueueWork(requireContext(), Intent())
                     }
                 }.addOnFailureListener {
-                    Handy.toast(activity!!,context!!,"Auth failed")
+                    Handy.toast(requireActivity(),requireContext(),"Auth failed")
                 }
         }else{
-            Handy.editTitle(activity!!,auth.currentUser!!.displayName!!)
+            Handy.editTitle(requireActivity(),auth.currentUser!!.displayName!!)
             makeRecyclerAdapter()
             implementAddStorageFABbtn()
             setRecyclerViewItemTouchListener()
             implementSeeProducts()
-            StorageService.enqueueWork(context!!, Intent())
+            StorageService.enqueueWork(requireContext(), Intent())
         }
     }
 
@@ -142,7 +142,7 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     }
 
     override fun signOutDialog(){
-        Handy.yesNoDialog(context!!,"Go to the Login/Register screen?", "Do you really wish to sign out " +
+        Handy.yesNoDialog(requireContext(),"Go to the Login/Register screen?", "Do you really wish to sign out " +
                 "and go to the Login/Register screen?",{signOut()})
     }
 
@@ -166,12 +166,12 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
      * **/
     private fun implementAddStorageFABbtn(){
         fabAddStorage.setOnClickListener {
-            Handy.inputDialog(activity!!,"Add storage", "") {
+            Handy.inputDialog(requireActivity(),"Add storage", "") {
                 val name = it
                 docUser.update("storages", FieldValue.arrayUnion(Storage(name)))
                     .addOnSuccessListener {
                         if(Handy.xamXamUser!!.addStorage(name)){
-                            Handy.snack(activity!!,"Storage $name is added")
+                            Handy.snack(requireActivity(),"Storage $name is added")
                             notifyChanges()
                     }
                 }.addOnFailureListener {
@@ -190,10 +190,10 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
      * List of the recyclerview will be based of the
      * **/
     override fun makeRecyclerAdapter(){
-        if(Handy.xamXamUser != null){
+        if(Handy.xamXamUser != null && context != null){
             storageAdapter = StorageAdapter(Handy.xamXamUser!!.storages)
             RecyclerViewStorage.apply {
-                layoutManager = LinearLayoutManager(context!!)
+                layoutManager = LinearLayoutManager(context)
                 adapter = storageAdapter
             }
             touchStorage()
@@ -226,7 +226,7 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
 
     private fun basicItemDecorator(): RecyclerView.ItemDecoration{
         return DividerItemDecoration(context, DividerItemDecoration.VERTICAL).also {
-            it.setDrawable(ContextCompat.getDrawable(context!!, R.drawable.divider)!!)
+            it.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider)!!)
         }
     }
 
@@ -235,7 +235,7 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
      * items that are added or removed, not modified.
      * **/
     override fun notifyChanges(){
-        Handy.ui(activity!!) { storageAdapter.notifyDataSetChanged() }
+        Handy.ui(requireActivity()) { storageAdapter.notifyDataSetChanged() }
     }
 
     /**
@@ -243,7 +243,7 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
      * who has changed.
      * **/
     override fun notifyStorageChange(i:Int){
-        Handy.ui(activity!!) { storageAdapter.notifyItemChanged(i) }
+        Handy.ui(requireActivity()) { storageAdapter.notifyItemChanged(i) }
     }
 
     //==================== MENU FUNCTIONS ====================
@@ -258,7 +258,7 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.Statistics -> {
-                StatisticsHandy.showStatistics(context!!, Handy.xamXamUser!!.statistics(auth.currentUser!!.displayName!!))
+                StatisticsHandy.showStatistics(requireContext(), Handy.xamXamUser!!.statistics(auth.currentUser!!.displayName!!))
                 true
             }
             R.id.Profile -> {

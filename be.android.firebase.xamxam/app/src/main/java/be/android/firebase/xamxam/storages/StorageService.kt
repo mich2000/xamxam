@@ -21,7 +21,7 @@ class StorageService: JobIntentService() {
         }
     }
 
-    var notifier:Notifier? = null
+    private var notifier:Notifier? = null
 
     override fun onHandleWork(intent: Intent) {
         if(notifier == null){

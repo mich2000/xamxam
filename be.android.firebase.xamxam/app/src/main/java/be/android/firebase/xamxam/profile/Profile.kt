@@ -44,8 +44,8 @@ class Profile : Fragment(), IQuitable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if(!user.isEmailVerified){
-            Handy.toast(activity!!,context!!, "To view your profile you have to confirm you're mail",true)
-            Handy.yesNoDialog(context!!, "Send confirmation mail?",
+            Handy.toast(requireActivity(),requireContext(), "To view your profile you have to confirm you're mail",true)
+            Handy.yesNoDialog(requireContext(), "Send confirmation mail?",
                 {
                     sendConfirmMail()
                     findNavController().navigate(R.id.profileToStorage)
@@ -64,11 +64,11 @@ class Profile : Fragment(), IQuitable {
     //================= FUNCTIONS ====================
     override fun signOut() = findNavController().navigate(R.id.profileToStorage)
 
-    override fun signOutDialog() = Handy.yesNoDialog(context!!,"Go to storages"
+    override fun signOutDialog() = Handy.yesNoDialog(requireContext(),"Go to storages"
         , "Back to the storage page?", this::signOut)
 
     private fun updateUI(){
-        Handy.editTitle(activity!!, user.displayName!!)
+        Handy.editTitle(requireActivity(), user.displayName!!)
         nameText.text = user.displayName!!
         emailText.text = user.email
         emailVerifiedText.text =
@@ -80,7 +80,7 @@ class Profile : Fragment(), IQuitable {
      * function used to show a dialog to change the name of the user.
      * **/
     private fun changeName(){
-        Handy.inputDialog(context!!, "Do you really want to change you're name?", user.displayName!!)
+        Handy.inputDialog(requireContext(), "Do you really want to change you're name?", user.displayName!!)
         {
             name -> updateName(name)
         }
@@ -95,16 +95,16 @@ class Profile : Fragment(), IQuitable {
         user.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
-                    Handy.toast(activity!!,context!!, "Name has successfully been changed",true)
+                    Handy.toast(requireActivity(),requireContext(), "Name has successfully been changed",true)
                     updateUI()
-                    Handy.snack(activity!!, "Do you want to change you're name back?", true) {
+                    Handy.snack(requireActivity(), "Do you want to change you're name back?", true) {
                         updateName(originalName)
                     }
                 } else {
-                    Handy.toast(activity!!,context!!, "An error happened, name could not be changed",true)
+                    Handy.toast(requireActivity(),requireContext(), "An error happened, name could not be changed",true)
                 }
             }.addOnFailureListener {
-                Handy.toast(activity!!,context!!, "An error happened, name could not be changed", true)
+                Handy.toast(requireActivity(),requireContext(), "An error happened, name could not be changed", true)
             }
     }
 
@@ -114,13 +114,13 @@ class Profile : Fragment(), IQuitable {
     private fun updatePassword(){
         if(user.isEmailVerified){
             reauthenticate {
-                Handy.passwordConfirmDialog(activity!!,context!!,"Set your new password") {
+                Handy.passwordConfirmDialog(requireActivity(),requireContext(),"Set your new password") {
                     user.updatePassword(it)
                         .addOnCompleteListener { task ->
                             if(task.isSuccessful){
-                                Handy.toast(activity!!,context!!, "Password has been changed")
+                                Handy.toast(requireActivity(),requireContext(), "Password has been changed")
                             } else {
-                                Handy.toast(activity!!,context!!, "Password has failed to be changed")
+                                Handy.toast(requireActivity(),requireContext(), "Password has failed to be changed")
                             }
                         }
                 }
@@ -136,13 +136,13 @@ class Profile : Fragment(), IQuitable {
      * **/
     private fun deleteProfile(){
         reauthenticate {
-            Handy.yesNoDialog(context!!, "Do you really want to delete you're profile?", {
+            Handy.yesNoDialog(requireContext(), "Do you really want to delete you're profile?", {
                 user.delete()
                     .addOnSuccessListener {
-                        Handy.toast(activity!!,context!!, "You're profile has successfully been deleted.")
-                        startActivity(Intent(context!!,MainActivity::class.java))
+                        Handy.toast(requireActivity(),requireContext(), "You're profile has successfully been deleted.")
+                        startActivity(Intent(requireContext(),MainActivity::class.java))
                     }.addOnFailureListener {
-                        Handy.toast(activity!!,context!!, "You're profile couldn't be deleted, it didn't succeed.")
+                        Handy.toast(requireActivity(),requireContext(), "You're profile couldn't be deleted, it didn't succeed.")
                     }
             })
         }
@@ -152,12 +152,12 @@ class Profile : Fragment(), IQuitable {
      * function used to send a mail confirmation
      * **/
     private fun sendConfirmMail(){
-        Handy.yesNoDialog(context!!, "Do you want to send a confirmation mail") {
+        Handy.yesNoDialog(requireContext(), "Do you want to send a confirmation mail") {
             user.sendEmailVerification()
                 .addOnSuccessListener {
-                    Handy.toast(activity!!,context!!, "A confirmation email has been send",true)
+                    Handy.toast(requireActivity(),requireContext(), "A confirmation email has been send",true)
                 }.addOnFailureListener {
-                    Handy.toast(activity!!,context!!, "Could not send a confirmation email",true)
+                    Handy.toast(requireActivity(),requireContext(), "Could not send a confirmation email",true)
                 }
         }
     }
@@ -170,24 +170,24 @@ class Profile : Fragment(), IQuitable {
         for (UserInfo in FirebaseAuth.getInstance().currentUser!!.providerData) {
             when (UserInfo.providerId) {
                 EmailAuthProvider.PROVIDER_ID -> {
-                    Handy.passwordDialog(context!!, "Please put you're password: ") {
+                    Handy.passwordDialog(requireContext(), "Please put you're password: ") {
                         user.reauthenticate(EmailAuthProvider.getCredential(user.email!!,it))
                             .addOnSuccessListener {
-                                Handy.toast(activity!!,context!!,"You have been reauthenticated")
+                                Handy.toast(requireActivity(),requireContext(),"You have been reauthenticated")
                                 OnSuccess()
                             }.addOnFailureListener {
-                                Handy.toast(activity!!,context!!, "Reauthentication failed")
+                                Handy.toast(requireActivity(),requireContext(), "Reauthentication failed")
                             }
                     }
                 }
                 GoogleAuthProvider.PROVIDER_ID -> {
-                    Handy.passwordDialog(context!!, "Please put you're password: ") {
+                    Handy.passwordDialog(requireContext(), "Please put you're password: ") {
                         user.reauthenticate(GoogleAuthProvider.getCredential(user.email!!,it))
                             .addOnSuccessListener {
-                                Handy.toast(activity!!,context!!,"You have been reauthenticated")
+                                Handy.toast(requireActivity(),requireContext(),"You have been reauthenticated")
                                 OnSuccess()
                             }.addOnFailureListener {
-                                Handy.toast(activity!!,context!!, "Reauthentication failed")
+                                Handy.toast(requireActivity(),requireContext(), "Reauthentication failed")
                             }
                     }
                 }

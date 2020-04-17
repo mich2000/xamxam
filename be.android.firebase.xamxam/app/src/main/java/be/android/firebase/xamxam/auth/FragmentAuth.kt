@@ -56,10 +56,10 @@ class FragmentAuth : Fragment(){
     private fun controlUserAuth(){
         if (auth.currentUser != null) {
             val user = auth.currentUser!!.displayName
-            Handy.editTitle(activity!!,user!!)
+            Handy.editTitle(requireActivity(),user!!)
             findNavController().navigate(R.id.toStorageFragment)
         } else {
-            Handy.editTitle(activity!!)
+            Handy.editTitle(requireActivity())
         }
     }
 
@@ -95,11 +95,11 @@ class FragmentAuth : Fragment(){
             val response:IdpResponse? = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK && response != null) {
                 val user = auth.currentUser!!.displayName!!
-                Handy.editTitle(activity!!,user)
+                Handy.editTitle(requireActivity(),user)
                 Handy.xamXamUser = null
                 findNavController().navigate(R.id.toStorageFragment)
             } else {
-                Handy.toast(activity!!,context!!,"Auth failed",true)
+                Handy.toast(requireActivity(),requireContext(),"Auth failed",true)
             }
         }
     }

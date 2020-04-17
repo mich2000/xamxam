@@ -46,7 +46,7 @@ data class Notifier(val context: Context, val DEFAULT_CHANNEL_ID:String, val DEF
     /**
      * function used to show simple non interactive notification to the user.
      * **/
-    fun defaultNotification(textTitle:String, textContent:String)
+    private fun defaultNotification(textTitle:String, textContent:String)
             : Notification {
         return NotificationCompat.Builder(context,context.getString(R.string.notify_products))
             .setSmallIcon(android.R.drawable.ic_dialog_alert)

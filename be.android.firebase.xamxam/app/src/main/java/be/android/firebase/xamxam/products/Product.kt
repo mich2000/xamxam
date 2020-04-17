@@ -1,6 +1,7 @@
 package be.android.firebase.xamxam.products
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -8,6 +9,7 @@ import androidx.activity.addCallback
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -71,8 +73,8 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
      * **/
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(arguments?.getString("storage") != null){
-            storageName = arguments!!.getString("storage")!!
+        if(arguments?.getString("storage") != null && arguments != null){
+            storageName = arguments?.getString("storage")!!
         }
         setHasOptionsMenu(true)
         searchNameProduct.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
@@ -90,16 +92,18 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
      * can chose to do. If it fails it will re-synchronize with the firestore
      * **/
     fun updateDocumentStorages(onSuccess:()->Unit = {}){
-        docUser.update("storages",Handy.xamXamUser!!.storages)
-            .addOnSuccessListener {
-                onSuccess()
-                StorageService.enqueueWork(context!!, Intent())
-            }
-            .addOnFailureListener {
-                docUser.get().addOnSuccessListener { documentSnapshot ->
-                    Handy.xamXamUser = documentSnapshot.toObject(XamUser::class.java)!!
+        if(context != null) {
+            docUser.update("storages",Handy.xamXamUser!!.storages)
+                .addOnSuccessListener {
+                    onSuccess()
+                    StorageService.enqueueWork(context, Intent())
                 }
-            }
+                .addOnFailureListener {
+                    docUser.get().addOnSuccessListener { documentSnapshot ->
+                        Handy.xamXamUser = documentSnapshot.toObject(XamUser::class.java)!!
+                    }
+                }
+        }
     }
 
     /**
@@ -122,8 +126,11 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
 
     override fun signOut() = findNavController().navigate(R.id.productToStorage)
 
-    override fun signOutDialog() = Handy.yesNoDialog(context!!,"Go to storages"
-        , "Back to the storage page?", this::signOut)
+    override fun signOutDialog() {
+        if(context != null) {
+            Handy.yesNoDialog(context as Context,"Go to storages","Back to the storage page?", this::signOut)
+        }
+    }
 
     //========================== RECYCLERVIEW FUNCTIONS ========================
     /**
@@ -143,16 +150,18 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
     }
 
     private fun touchProduct() {
-        productAdapter.clickEditProduct = { i: Int, _ ->
-            val touchedProduct = productAdapter.filteredProductList[i]
-            val user = Handy.xamXamUser!!
-            val indexProduct = user.getProductIndex(storageName, touchedProduct)!!
-            ProductHandy.productDialog(context!!,"Edit product", touchedProduct) {
-                if(user.editProduct(storageName, indexProduct, it)){
-                    productAdapter.synchronize()
-                    notifyStorageChange(i)
-                    updateDocumentStorages {
-                        Handy.snack(activity!!,"Product is succesfully edited in $storageName")
+        if(context != null && activity != null){
+            productAdapter.clickEditProduct = { i: Int, _ ->
+                val touchedProduct = productAdapter.filteredProductList[i]
+                val user = Handy.xamXamUser!!
+                val indexProduct = user.getProductIndex(storageName, touchedProduct)!!
+                ProductHandy.productDialog(requireContext(),"Edit product", touchedProduct) {
+                    if(user.editProduct(storageName, indexProduct, it)){
+                        productAdapter.synchronize()
+                        notifyStorageChange(i)
+                        updateDocumentStorages {
+                            Handy.snack(activity as FragmentActivity,"Product is succesfully edited in $storageName")
+                        }
                     }
                 }
             }
@@ -164,18 +173,20 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
      * add the product to the user and refresh the recyclerview.
      * **/
     private fun implementAddProductFabButton(){
-        fabAddProduct.setOnClickListener {
-            ProductHandy.productDialog(context!!,"Add product") {
-                val product = it
-                if(product != null){
-                    if(Handy.xamXamUser!!.addProduct(storageName, product)){
-                        updateDocumentStorages {
-                            Handy.snack(activity!!,"Product added to $storageName")
-                            productAdapter.synchronize()
+        if(context != null && activity != null) {
+            fabAddProduct.setOnClickListener {
+                ProductHandy.productDialog(requireContext(),"Add product") {
+                    val product = it
+                    if(product != null){
+                        if(Handy.xamXamUser!!.addProduct(storageName, product)){
+                            updateDocumentStorages {
+                                Handy.snack(requireActivity(),"Product added to $storageName")
+                                productAdapter.synchronize()
+                            }
                         }
+                    }else{
+                        Handy.toast(requireActivity(),requireContext(),"product is leeg",true)
                     }
-                }else{
-                    Handy.toast(activity!!,context!!,"product is leeg",true)
                 }
             }
         }
@@ -206,24 +217,26 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
     }
 
     private fun setUpMovingProducts(){
-        productAdapter.longClickMoveProduct = { pos:Int,view:View ->
-            val user = Handy.xamXamUser!!
-            val productIndex = user.getProductIndex(storageName,
-                productAdapter.filteredProductList[pos])
-            Handy.arrayDialog(context!!, "Move to storages",Handy.xamXamUser!!.allStorageNames(),
-                { chosenItemString: String, chosenItemIndex:Int ->
-                    try {
-                        user.moveProduct(storageName, chosenItemString, user.getStorage(storageName)!!
-                            .productUnitList[productIndex!!])
-                        updateDocumentStorages {
-                            Handy.toast(activity!!,context!!,"Product has been moved")
-                            productAdapter.synchronize()
+        if(activity != null && context != null) {
+            productAdapter.longClickMoveProduct = { pos:Int,view:View ->
+                val user = Handy.xamXamUser!!
+                val productIndex = user.getProductIndex(storageName,
+                    productAdapter.filteredProductList[pos])
+                Handy.arrayDialog(requireContext(), "Move to storages",Handy.xamXamUser!!.allStorageNames(),
+                    { chosenItemString: String, chosenItemIndex:Int ->
+                        try {
+                            user.moveProduct(storageName, chosenItemString, user.getStorage(storageName)!!
+                                .productUnitList[productIndex!!])
+                            updateDocumentStorages {
+                                Handy.toast(requireActivity(),requireContext(),"Product has been moved")
+                                productAdapter.synchronize()
+                            }
+                        }catch (e:Exception){
+                            Handy.toast(requireActivity(),requireContext(), "An error happened, " +
+                                    "the product has not been moved")
                         }
-                    }catch (e:Exception){
-                        Handy.toast(activity!!,context!!, "An error happened, " +
-                                "the product has not been moved")
-                    }
-                }, "Ok")
+                    }, "Ok")
+            }
         }
     }
 
@@ -233,7 +246,7 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
      * **/
     private fun basicItemDecorator(): RecyclerView.ItemDecoration{
         return DividerItemDecoration(context, DividerItemDecoration.VERTICAL).also {
-            it.setDrawable(ContextCompat.getDrawable(context!!, R.drawable.divider)!!)
+            it.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider)!!)
         }
     }
 
@@ -241,11 +254,13 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
      * Function used to notify changes of the data of a particular item
      * **/
     override fun notifyStorageChange(i: Int) {
-        Handy.ui(activity!!) { productAdapter.notifyItemChanged(i) }
+        if(activity != null)
+            Handy.ui(requireActivity()) { productAdapter.notifyItemChanged(i) }
     }
 
     override fun notifyChanges() {
-        Handy.ui(activity!!) { productAdapter.notifyDataSetChanged() }
+        if(activity != null)
+        Handy.ui(requireActivity()) { productAdapter.notifyDataSetChanged() }
     }
 
     //========================== MENU FUNCTIONS ========================
@@ -260,7 +275,7 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.Statistics -> {
-                StatisticsHandy.showStatistics(context!!,
+                StatisticsHandy.showStatistics(requireContext(),
                     Handy.xamXamUser!!.getStorage(storageName)!!.statistics())
                 true
             }
