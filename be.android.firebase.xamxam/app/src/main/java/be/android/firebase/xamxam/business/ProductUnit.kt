@@ -2,6 +2,8 @@ package be.android.firebase.xamxam.business
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.classes.Converter.Companion.toLocalDate
@@ -42,6 +44,7 @@ fun returnCategoryIcon(context: Context, category: String):Drawable?{
  * 0: peremption date equals the date of today
  * -1: peremption date is less than the date of today
  * **/
+@RequiresApi(Build.VERSION_CODES.O)
 fun isOverDate(productUnit: ProductUnit):Int{
     val now = LocalDate.now()
     val datum = productUnit.bederfdatum!!.toLocalDate()
@@ -66,6 +69,7 @@ data class ProductUnit(var name:String? = null,
     /**
      * returns the amount of days between the peremption date and the date of today.
      * **/
+    @RequiresApi(Build.VERSION_CODES.O)
     fun daysLeftOver():String {
         val daysLeft = (bederfdatum!!.toLocalDate().toEpochDay() - LocalDate.now().toEpochDay())
         return "${TimeUnit.DAYS.convert(daysLeft, TimeUnit.DAYS)} days left"

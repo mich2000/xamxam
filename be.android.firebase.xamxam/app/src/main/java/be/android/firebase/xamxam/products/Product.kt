@@ -3,9 +3,11 @@ package be.android.firebase.xamxam.products
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.activity.addCallback
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -149,6 +151,7 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun touchProduct() {
         if(context != null && activity != null){
             productAdapter.clickEditProduct = { i: Int, _ ->
@@ -172,6 +175,7 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
      * implements a function on the floating add button in the fragment, that will add the
      * add the product to the user and refresh the recyclerview.
      * **/
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun implementAddProductFabButton(){
         if(context != null && activity != null) {
             fabAddProduct.setOnClickListener {
@@ -272,6 +276,7 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
     /**
      * Function used to give actions to each
      * **/
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.Statistics -> {

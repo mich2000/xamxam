@@ -56,7 +56,7 @@
 * icoon maken voor mijn app, PID schrijven, app publiceren in de amazon app store: 5 uur
 * Mijn app compatible maken met tenminste 1 amazon test toestel: 30 min
 ### Opmerkingen:
-* Om door de amazon app store review door te gaan moet je app tenminste met 1 test toestel die amazon gebruikt. Mijn probleem was dat mijn minSdkVersion te hoog was, ik heb daar door van 28 naar 26 gezet. Zo kan mijn code onverandert blijven en toch goedgekeurd zijn voor hun app review.
+* Om door de amazon app store review door te gaan moet je app tenminste met 1 test toestel die amazon gebruikt. Mijn probleem was dat mijn minSdkVersion te hoog was, ik heb daar door van 28 naar 22 gezet. Zo kan mijn code onverandert blijven en toch goedgekeurd zijn voor hun app review.
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319

@@ -3,11 +3,13 @@ package be.android.firebase.xamxam.classes
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.os.Build
 import android.util.Log
 import android.view.View
 import android.widget.CalendarView
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.annotation.RequiresApi
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.business.ProductUnit
 import be.android.firebase.xamxam.business.categories
@@ -27,6 +29,7 @@ class ProductHandy {
          *
          *  link used to set specific date of calendarview: https://stackoverflow.com/questions/22583122/how-to-set-focus-on-a-specific-date-in-calendarview-knowing-date-is-dd-mm-yyyy
          * **/
+        @RequiresApi(Build.VERSION_CODES.O)
         fun productDialog(context: Context, title: String, productUnit: ProductUnit,
                           answer: (InitialInput: ProductUnit) -> Unit){
             val view = View.inflate(context, R.layout.product_dialog, null)
@@ -69,6 +72,7 @@ class ProductHandy {
          * that the user provides he can then use the product that it has created if he chose
          * the positive answer.
          * **/
+        @RequiresApi(Build.VERSION_CODES.O)
         fun productDialog(context: Context, title: String,
                           answer: (InitialInput: ProductUnit?) -> Unit){
             val view = View.inflate(context, R.layout.product_dialog, null)

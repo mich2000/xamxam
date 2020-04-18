@@ -1,10 +1,12 @@
 package be.android.firebase.xamxam.products
 
 import android.graphics.Color
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.business.ProductUnit
@@ -96,6 +98,7 @@ class ProductAdapter(private val storageName:String):
      * will also give for each type a particular icon
      * Modifies the color of the item depending on the peremption date
      * **/
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: StorageHolder, position: Int) {
         val currentProduct = filteredProductList[position]
         val resultDate = isOverDate(currentProduct)

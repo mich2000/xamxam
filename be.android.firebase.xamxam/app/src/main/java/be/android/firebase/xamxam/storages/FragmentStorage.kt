@@ -1,9 +1,11 @@
 package be.android.firebase.xamxam.storages
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.activity.addCallback
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -255,6 +257,7 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     /**
      * Function used to give actions to each
      * **/
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.Statistics -> {

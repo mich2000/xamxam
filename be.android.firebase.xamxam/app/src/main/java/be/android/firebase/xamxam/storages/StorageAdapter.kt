@@ -1,10 +1,12 @@
 package be.android.firebase.xamxam.storages
 
 import android.graphics.Color
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.business.Storage
@@ -52,6 +54,7 @@ class StorageAdapter(storages:ArrayList<Storage>): RecyclerView.Adapter<StorageA
 
     override fun getItemCount(): Int = storageList.size
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: StorageHolder, position: Int) {
         val storage = storageList[position]
         holder.txtStorage!!.text = storage.toString()
