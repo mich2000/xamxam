@@ -201,11 +201,5 @@ class Handy {
                 .setAction("Ok") { action() }
                 .show()
 
-        fun snack(activity: Activity, message:Any, long:Boolean = false, btnMsg:String, action:() -> Unit = {}) =
-            Snackbar.make(activity.findViewById(android.R.id.content),
-                message.toString(),
-                if(long) Snackbar.LENGTH_LONG else Snackbar.LENGTH_SHORT)
-                .setAction(btnMsg) { action() }
-                .show()
     }
 }

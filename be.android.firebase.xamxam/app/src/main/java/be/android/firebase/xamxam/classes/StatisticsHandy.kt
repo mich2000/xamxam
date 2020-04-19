@@ -30,7 +30,7 @@ class StatisticsHandy {
             view.findViewById<TextView>(R.id.txtAmountProduct).text = "# products: ${statistics.totalProducts}"
             view.findViewById<TextView>(R.id.txtDates)
                 .text = when {
-                    statistics.totalProducts == 0 -> "There are not products"
+                    statistics.totalProducts == 0 -> "There are no products"
                     statistics.areDatesEqual() -> "Products perishes today"
                     else -> "Date range ${statistics.minDate} - ${statistics.maxDate}"
                 }

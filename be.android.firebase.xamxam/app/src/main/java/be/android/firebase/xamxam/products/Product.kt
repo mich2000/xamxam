@@ -3,11 +3,9 @@ package be.android.firebase.xamxam.products
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.activity.addCallback
-import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -220,12 +218,12 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
 
     private fun setUpMovingProducts(){
         if(activity != null && context != null) {
-            productAdapter.longClickMoveProduct = { pos:Int,view:View ->
+            productAdapter.longClickMoveProduct = { pos:Int,_ ->
                 val user = Handy.xamXamUser!!
                 val productIndex = user.getProductIndex(storageName,
                     productAdapter.filteredProductList[pos])
                 Handy.arrayDialog(requireContext(), "Move to storages",Handy.xamXamUser!!.allStorageNames(),
-                    { chosenItemString: String, chosenItemIndex:Int ->
+                    { chosenItemString: String, _ ->
                         try {
                             user.moveProduct(storageName, chosenItemString, user.getStorage(storageName)!!
                                 .productUnitList[productIndex!!])

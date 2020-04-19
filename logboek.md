@@ -48,13 +48,14 @@
 ## week 6 - 6 uur:
 * les: 3 uur 30 min
 * werken aan nieuwe feature voor producten, dialoogventser met meerdere objecten maken en jobintentservice verbeteren: 2 uur 30 min
-## week 7 - 14 uur 15 min:
+## week 7 - 19 uur 15 min:
 * les: 2 uur
 * fragment aanmaken om profiel te kunen beheren, veranderen van gebruikersnaam al geïmplementeerd: 2 uur
 * werken aan dialogen in statische klassen Handy om passwoorden in te kunnen voeren, en aan de profiel framgent werken. Aan de toepassing om u passwoord te veranderen.: 2 uur 30 min
 * fragment profiel afmaken: 2 uur
 * icoon maken voor mijn app, PID schrijven, app publiceren in de amazon app store: 5 uur
 * Mijn app compatible maken met tenminste 1 amazon test toestel: 45 min
+* Werken aan de release versie van de firebase android app: 5 uur
 ### Opmerkingen:
 * Ik het op dit moment moeilijk om mijn app door de amazon app store door te laten.
 ## Bibliografie:

@@ -2,9 +2,7 @@ package be.android.firebase.xamxam.storages
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.core.app.JobIntentService
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.classes.Handy

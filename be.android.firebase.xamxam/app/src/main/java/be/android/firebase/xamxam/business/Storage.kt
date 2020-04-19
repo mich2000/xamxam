@@ -1,7 +1,5 @@
 package be.android.firebase.xamxam.business
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import be.android.firebase.xamxam.classes.Converter.Companion.toLocalDate
 import be.android.firebase.xamxam.classes.Converter.Companion.toStringDate
 import java.time.LocalDate

@@ -3,13 +3,11 @@ package be.android.firebase.xamxam.classes
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.os.Build
 import android.util.Log
 import android.view.View
 import android.widget.CalendarView
 import android.widget.EditText
 import android.widget.Spinner
-import androidx.annotation.RequiresApi
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.business.ProductUnit
 import be.android.firebase.xamxam.business.categories

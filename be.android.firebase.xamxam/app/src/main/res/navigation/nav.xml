@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/fragmentAuth">
-
     <fragment
         android:id="@+id/fragmentAuth"
         android:name="be.android.firebase.xamxam.auth.FragmentAuth"

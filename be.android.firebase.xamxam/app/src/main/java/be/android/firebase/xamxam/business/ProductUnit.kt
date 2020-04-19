@@ -2,8 +2,6 @@ package be.android.firebase.xamxam.business
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.classes.Converter.Companion.toLocalDate
