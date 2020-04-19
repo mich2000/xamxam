@@ -98,7 +98,6 @@ class ProductAdapter(private val storageName:String):
      * will also give for each type a particular icon
      * Modifies the color of the item depending on the peremption date
      * **/
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: StorageHolder, position: Int) {
         val currentProduct = filteredProductList[position]
         val resultDate = isOverDate(currentProduct)

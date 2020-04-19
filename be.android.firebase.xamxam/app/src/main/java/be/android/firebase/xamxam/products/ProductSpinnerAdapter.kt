@@ -29,7 +29,7 @@ class ProductSpinnerAdapter(context: Context, objects:Array<String>)
     private fun getBasicView(position:Int):View{
         val basicView = View.inflate(context, R.layout.spinner_icon_text,null)
         basicView.findViewById<TextView>(R.id.productDescription).also {
-            it.text = "${objectArray[position]} "
+            it.text = "${this.objectArray[position]} "
             it.setCompoundDrawablesRelative(null,null,
                 returnCategoryIcon(context, objectArray[position]).also { img ->
                     img!!.setBounds(0,0,48,48)

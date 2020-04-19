@@ -10,7 +10,6 @@ data class Storage(var name:String = "", var productUnitList:ArrayList<ProductUn
     /**
      * function used to sort the product on basis of its peremption date.
      * **/
-    @RequiresApi(Build.VERSION_CODES.O)
     fun sortOnDate(){
         if(productUnitList.size != 0) productUnitList.sortBy { it.bederfdatum!!.toLocalDate() }
     }
@@ -19,7 +18,6 @@ data class Storage(var name:String = "", var productUnitList:ArrayList<ProductUn
      * returns the statistics about the storage itself, this means the amount of products and
      * minimum and maximum date of all the products.
      * **/
-    @RequiresApi(Build.VERSION_CODES.O)
     fun statistics():StatisticsStorage{
         if(productUnitList.size == 0){
             return StatisticsStorage("Statistics storage $name",0,"There are no products","There are no products")
@@ -39,7 +37,6 @@ data class Storage(var name:String = "", var productUnitList:ArrayList<ProductUn
      * function that returns a false if all products are good for consumption and false if their
      * perdition date is before or equal to to the date of today.
      * **/
-    @RequiresApi(Build.VERSION_CODES.O)
     fun containsBadProducts():Boolean{
         if(productUnitList.size != 0){
             val now = LocalDate.now()

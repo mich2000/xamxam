@@ -44,7 +44,6 @@ fun returnCategoryIcon(context: Context, category: String):Drawable?{
  * 0: peremption date equals the date of today
  * -1: peremption date is less than the date of today
  * **/
-@RequiresApi(Build.VERSION_CODES.O)
 fun isOverDate(productUnit: ProductUnit):Int{
     val now = LocalDate.now()
     val datum = productUnit.bederfdatum!!.toLocalDate()
@@ -55,21 +54,20 @@ fun isOverDate(productUnit: ProductUnit):Int{
     }
 }
 
-/**
- * class product representing the product
- *
- * link for pyramid view: https://en.wikipedia.org/wiki/Food_pyramid_(nutrition)
- * link for amount of days between 2 dates: https://stackoverflow.com/questions/42553017/android-calculate-days-between-two-dates
- * **/
-data class ProductUnit(var name:String? = null,
-                       var hoeveelheid:Int? = null,
-                       var category:String? = "",
-                       var bederfdatum:String? = null) {
+    /**
+     * class product representing the product
+     *
+     * link for pyramid view: https://en.wikipedia.org/wiki/Food_pyramid_(nutrition)
+     * link for amount of days between 2 dates: https://stackoverflow.com/questions/42553017/android-calculate-days-between-two-dates
+     * **/
+    data class ProductUnit(var name:String? = null,
+                           var hoeveelheid:Int? = null,
+                           var category:String? = "",
+                           var bederfdatum:String? = null) {
 
     /**
      * returns the amount of days between the peremption date and the date of today.
      * **/
-    @RequiresApi(Build.VERSION_CODES.O)
     fun daysLeftOver():String {
         val daysLeft = (bederfdatum!!.toLocalDate().toEpochDay() - LocalDate.now().toEpochDay())
         return "${TimeUnit.DAYS.convert(daysLeft, TimeUnit.DAYS)} days left"

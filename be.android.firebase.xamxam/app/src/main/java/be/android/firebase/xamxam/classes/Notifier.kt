@@ -15,7 +15,6 @@ import be.android.firebase.xamxam.R
  * class used to notify user
  * link for notifications: https://developer.android.com/training/notify-user/build-notification
  * **/
-@RequiresApi(Build.VERSION_CODES.O)
 data class Notifier(val context: Context, val DEFAULT_CHANNEL_ID:String, val DEFAULT_CHANNEL_NAME:String) {
     companion object{
         /**
@@ -36,7 +35,6 @@ data class Notifier(val context: Context, val DEFAULT_CHANNEL_ID:String, val DEF
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private val notifier: NotificationChannel =
         NotificationChannel(DEFAULT_CHANNEL_ID, DEFAULT_CHANNEL_NAME,
             NotificationManager.IMPORTANCE_DEFAULT)

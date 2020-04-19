@@ -1,9 +1,7 @@
 package be.android.firebase.xamxam.business
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import be.android.firebase.xamxam.classes.Converter.Companion.toStringDate
 import be.android.firebase.xamxam.classes.Converter.Companion.toLocalDate
+import be.android.firebase.xamxam.classes.Converter.Companion.toStringDate
 import java.time.LocalDate
 
 data class XamUser(var storages:ArrayList<Storage> = ArrayList()){
@@ -154,7 +152,6 @@ data class XamUser(var storages:ArrayList<Storage> = ArrayList()){
      * function used to return statistics about the user these include the amount of
      * products/storages and minimum, maximum of peremption date.
      * **/
-    @RequiresApi(Build.VERSION_CODES.O)
     fun statistics(nameUser:String):StatisticsUser{
         if(storages.size == 0) return StatisticsUser("Statistics User",0, 0,
             "There are no storages and products","There are no storages and products")
@@ -177,7 +174,6 @@ data class XamUser(var storages:ArrayList<Storage> = ArrayList()){
      * function used to loop over each storage to see if it contains bad products, then it returns a
      * true and otherwise a false.
      * **/
-    @RequiresApi(Build.VERSION_CODES.O)
     fun containsBadProducts():ArrayList<String>{
         val badStorages = ArrayList<String>()
         storages.filter { it.productUnitList.size != 0 }.forEach { storage ->

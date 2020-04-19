@@ -48,15 +48,15 @@
 ## week 6 - 6 uur:
 * les: 3 uur 30 min
 * werken aan nieuwe feature voor producten, dialoogventser met meerdere objecten maken en jobintentservice verbeteren: 2 uur 30 min
-## week 7 - 14 uur:
+## week 7 - 14 uur 15 min:
 * les: 2 uur
 * fragment aanmaken om profiel te kunen beheren, veranderen van gebruikersnaam al geïmplementeerd: 2 uur
 * werken aan dialogen in statische klassen Handy om passwoorden in te kunnen voeren, en aan de profiel framgent werken. Aan de toepassing om u passwoord te veranderen.: 2 uur 30 min
 * fragment profiel afmaken: 2 uur
 * icoon maken voor mijn app, PID schrijven, app publiceren in de amazon app store: 5 uur
-* Mijn app compatible maken met tenminste 1 amazon test toestel: 30 min
+* Mijn app compatible maken met tenminste 1 amazon test toestel: 45 min
 ### Opmerkingen:
-* Om door de amazon app store review door te gaan moet je app tenminste met 1 test toestel die amazon gebruikt. Mijn probleem was dat mijn minSdkVersion te hoog was, ik heb daar door van 28 naar 22 gezet. Zo kan mijn code onverandert blijven en toch goedgekeurd zijn voor hun app review.
+* Ik het op dit moment moeilijk om mijn app door de amazon app store door te laten.
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319

@@ -54,7 +54,6 @@ class StorageAdapter(storages:ArrayList<Storage>): RecyclerView.Adapter<StorageA
 
     override fun getItemCount(): Int = storageList.size
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: StorageHolder, position: Int) {
         val storage = storageList[position]
         holder.txtStorage!!.text = storage.toString()

@@ -25,7 +25,6 @@ class StorageService: JobIntentService() {
 
     private var notifier:Notifier? = null
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onHandleWork(intent: Intent) {
         if(notifier == null){
             notifier = Notifier(this, this.getString(R.string.notify_products)
