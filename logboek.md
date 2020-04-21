@@ -56,6 +56,8 @@
 * icoon maken voor mijn app, PID schrijven, app publiceren in de amazon app store: 5 uur
 * Mijn app compatible maken met tenminste 1 amazon test toestel: 45 min
 * Werken aan de release versie van de firebase android app: 5 uur
+## week 8 - 30min:
+* les: 30 min
 ### Opmerkingen:
 * Ik het op dit moment moeilijk om mijn app door de amazon app store door te laten.
 ## Bibliografie:
