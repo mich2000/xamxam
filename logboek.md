@@ -56,9 +56,10 @@
 * icoon maken voor mijn app, PID schrijven, app publiceren in de amazon app store: 5 uur
 * Mijn app compatible maken met tenminste 1 amazon test toestel: 45 min
 * Werken aan de release versie van de firebase android app: 5 uur
-## week 8 - 1 uur:
+## week 8 - 3 uur 30 min:
 * les: 30 min
 * amazon app store debuggen: 30 min
+* progaurd rules schrijven en release versie signeren, firebase SHA-1 toevoegen voor release versie: 2 uur 30 min
 ### Opmerkingen:
 * Ik het op dit moment moeilijk om mijn app door de amazon app store door te laten.
 ## Bibliografie:
@@ -112,3 +113,4 @@
 * link om login methode achter te kunnen halen: https://stackoverflow.com/questions/38619628/how-to-determine-if-a-firebase-user-is-signed-in-using-facebook-authentication/46014063#46014063
 * link om passwoorden niet te zien in EditText element: https://stackoverflow.com/questions/25674711/android-how-to-hide-text-being-entered-in-edit-text-box
 * link om een ronde button te maken: https://stackoverflow.com/questions/9334618/rounded-button-in-android
+* link om progaurd rules te debuggen: https://stackoverflow.com/questions/6849558/what-is-android-keystore-file-and-what-is-it-used-for
