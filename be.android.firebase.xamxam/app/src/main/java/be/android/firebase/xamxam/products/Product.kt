@@ -24,6 +24,8 @@ import be.android.firebase.xamxam.interfaces.IBasicRecycle
 import be.android.firebase.xamxam.interfaces.IQuitable
 import be.android.firebase.xamxam.storages.StorageService
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_product.*
 
@@ -43,24 +45,13 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
         }
     }
 
-    private val auth = FirebaseAuth.getInstance()
-
-    private val uidUser = auth.currentUser!!.uid
-
-    private val users = FirebaseFirestore.getInstance().collection("users")
-
-    private var docUser = users.document(uidUser)
-
+    private lateinit var auth : FirebaseAuth
+    private lateinit var uidUser : String
+    private lateinit var users : CollectionReference
+    private lateinit var docUser : DocumentReference
     private lateinit var productAdapter: ProductAdapter
 
     //==================== LIFECYCLE CALLBACKS ================================
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(this){
-            signOutDialog()
-        }
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_product, container, false)
 
@@ -73,6 +64,10 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
      * **/
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = FirebaseAuth.getInstance()
+        uidUser = auth.currentUser!!.uid
+        users = FirebaseFirestore.getInstance().collection("users")
+        docUser = users.document(uidUser)
         if(arguments?.getString("storage") != null && arguments != null){
             storageName = arguments?.getString("storage")!!
         }
@@ -84,6 +79,9 @@ class Product : Fragment(),IQuitable,IBasicRecycle{
                 return false
             }
         })
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            signOutDialog()
+        }
     }
 
     //=============================== FUNCTIONS ===================================

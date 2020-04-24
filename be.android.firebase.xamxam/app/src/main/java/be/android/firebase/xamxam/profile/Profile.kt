@@ -29,35 +29,28 @@ class Profile : Fragment(), IQuitable {
     private lateinit var user : FirebaseUser
 
     //===================== LIFECYCLE FUNCTIONS ==================
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(this){
-            signOutDialog()
-        }
-        auth = FirebaseAuth.getInstance()
-        user = auth.currentUser!!
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_profile, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = FirebaseAuth.getInstance()
+        user = auth.currentUser!!
         if(!user.isEmailVerified){
             Handy.toast(requireActivity(),requireContext(), "To view your profile you have to confirm you're mail",true)
             Handy.yesNoDialog(requireContext(), "Send confirmation mail?",
                 {
                     sendConfirmMail()
-                    findNavController().navigate(R.id.profileToStorage)
-                },
-                {
-                    findNavController().navigate(R.id.profileToStorage)
                 })
+            findNavController().navigate(R.id.profileToStorage)
         } else {
             updateUI()
             btnChangeName.setOnClickListener { changeName() }
             btnChangePassword.setOnClickListener { updatePassword() }
             btnDeleteAccount.setOnClickListener { deleteProfile() }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            signOutDialog()
         }
     }
 

@@ -1,5 +1,3 @@
--ignorewarnings
+-keep class androidx.navigation.fragment.NavHostFragment {*;}
 
--keep class * {
-    public private *;
-}
+-keep class be.android.firebase.xamxam.** {*;}

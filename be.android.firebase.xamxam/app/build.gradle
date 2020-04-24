@@ -18,8 +18,8 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            shrinkResources true
         }
     }
 }
@@ -45,5 +45,5 @@ dependencies {
     implementation "androidx.fragment:fragment:1.2.4"
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
     implementation "androidx.navigation:navigation-fragment-ktx:2.2.2"
-    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.2'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
 }

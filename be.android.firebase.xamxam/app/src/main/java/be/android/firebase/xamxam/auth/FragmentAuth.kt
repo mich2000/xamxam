@@ -32,7 +32,7 @@ class FragmentAuth : Fragment(){
         const val RC_SIGN_IN = 123
     }
 
-    private var auth:FirebaseAuth = FirebaseAuth.getInstance()
+    private lateinit var auth:FirebaseAuth
 
     //========================== LIFECYCLE CALLBACKS ===========================
     override fun onCreateView(
@@ -42,6 +42,7 @@ class FragmentAuth : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = FirebaseAuth.getInstance()
         controlUserAuth()
         btnSignIn.setOnClickListener { createSignInIntent() }
     }

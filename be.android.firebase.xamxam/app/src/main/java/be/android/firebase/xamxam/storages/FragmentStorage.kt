@@ -45,17 +45,6 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     private lateinit var storageAdapter: StorageAdapter
 
     //==================== LIFECYCLE CALLBACKS ====================
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(this){
-            signOutDialog()
-        }
-        auth = FirebaseAuth.getInstance()
-        uidUser = auth.currentUser!!.uid
-        users = FirebaseFirestore.getInstance().collection("users")
-        docUser = users.document(uidUser)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
             : View = inflater.inflate(R.layout.fragment_storage, container, false)
 
@@ -68,8 +57,15 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
      * **/
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = FirebaseAuth.getInstance()
+        uidUser = auth.currentUser!!.uid
+        users = FirebaseFirestore.getInstance().collection("users")
+        docUser = users.document(uidUser)
         updateUserAndUi()
         txtTitle.text = "Storages"
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            signOutDialog()
+        }
         setHasOptionsMenu(true)
     }
 
