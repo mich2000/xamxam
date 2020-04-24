@@ -114,3 +114,4 @@
 * link om passwoorden niet te zien in EditText element: https://stackoverflow.com/questions/25674711/android-how-to-hide-text-being-entered-in-edit-text-box
 * link om een ronde button te maken: https://stackoverflow.com/questions/9334618/rounded-button-in-android
 * link om progaurd rules te debuggen: https://stackoverflow.com/questions/6849558/what-is-android-keystore-file-and-what-is-it-used-for
+* link om SHA-1 te hebben: https://stackoverflow.com/questions/38297493/get-android-release-certificate-fingerprints
