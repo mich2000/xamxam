@@ -56,12 +56,14 @@
 * icoon maken voor mijn app, PID schrijven, app publiceren in de amazon app store: 5 uur
 * Mijn app compatible maken met tenminste 1 amazon test toestel: 45 min
 * Werken aan de release versie van de firebase android app: 5 uur
-## week 8 - 3 uur 30 min:
+## week 8 - 3 uur 40 min:
 * les: 30 min
 * amazon app store debuggen: 30 min
 * progaurd rules schrijven en release versie signeren, firebase SHA-1 toevoegen voor release versie: 2 uur 30 min
+* toevoegen van SHA-1 aan firebase: 10 min
 ### Opmerkingen:
 * Ik het op dit moment moeilijk om mijn app door de amazon app store door te laten.
+* Wanneer je een app wilt toevoegen bij de amazon app store zal deze de de signatuur op u app wegdoen en een amazon appstore signatuur erop doen, de signatuur wordt gebruikt door firebase om authenticatie te doen het is daarom belangrijk om de SHA-1 lijn van amazon toe te voegen bij firebase.   
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319
