@@ -63,7 +63,10 @@
 * toevoegen van SHA-1 aan firebase: 10 min
 ### Opmerkingen:
 * Ik het op dit moment moeilijk om mijn app door de amazon app store door te laten.
-* Wanneer je een app wilt toevoegen bij de amazon app store zal deze de de signatuur op u app wegdoen en een amazon appstore signatuur erop doen, de signatuur wordt gebruikt door firebase om authenticatie te doen het is daarom belangrijk om de SHA-1 lijn van amazon toe te voegen bij firebase.   
+* Wanneer je een app wilt toevoegen bij de amazon app store zal deze de de signatuur op u app wegdoen en een amazon appstore signatuur erop doen, de signatuur wordt gebruikt door firebase om authenticatie te doen het is daarom belangrijk om de SHA-1 lijn van amazon toe te voegen bij firebase. 
+## week 9 - 2 uur 50 min:
+* les: 50 min
+* werken aan issues(UI app verbeteren, crash sign-in, andere kleur voor recyclerview items, UX verbeteren): 2 uur
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319
@@ -117,3 +120,5 @@
 * link om een ronde button te maken: https://stackoverflow.com/questions/9334618/rounded-button-in-android
 * link om progaurd rules te debuggen: https://stackoverflow.com/questions/6849558/what-is-android-keystore-file-and-what-is-it-used-for
 * link om SHA-1 te hebben: https://stackoverflow.com/questions/38297493/get-android-release-certificate-fingerprints
+* link om 1 enkel element te centeren: https://stackoverflow.com/questions/1957831/center-a-button-in-a-linear-layout
+* link om R8 te gebruiken om minder grote apk's te krijgen: https://developer.android.com/studio/build/shrink-code
