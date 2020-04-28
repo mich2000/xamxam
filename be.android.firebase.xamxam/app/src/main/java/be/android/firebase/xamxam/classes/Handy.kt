@@ -200,6 +200,5 @@ class Handy {
                 if(long) Snackbar.LENGTH_LONG else Snackbar.LENGTH_SHORT)
                 .setAction("Ok") { action() }
                 .show()
-
     }
 }

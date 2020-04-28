@@ -18,7 +18,7 @@ data class Storage(var name:String = "", var productUnitList:ArrayList<ProductUn
      * **/
     fun statistics():StatisticsStorage{
         if(productUnitList.size == 0){
-            return StatisticsStorage("Statistics storage $name",0,"There are no products","There are no products")
+            return StatisticsStorage("Overview $name",0,"There are no products","There are no products")
         }
         var minDate: LocalDate = LocalDate.now()
         var maxDate: LocalDate = LocalDate.now()

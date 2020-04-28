@@ -36,8 +36,6 @@ class StorageService: JobIntentService() {
                 if(shownText != "")
                     notifier!!.show("Storages where bad products are",shownText)
             }
-        } else {
-            Log.d("xam is empty","xam is empty")
         }
     }
 }

@@ -71,5 +71,5 @@ fun isOverDate(productUnit: ProductUnit):Int{
         return "${TimeUnit.DAYS.convert(daysLeft, TimeUnit.DAYS)} days left"
     }
 
-    override fun toString(): String = "$hoeveelheid $name"
+    override fun toString(): String = "#$hoeveelheid - $name"
 }

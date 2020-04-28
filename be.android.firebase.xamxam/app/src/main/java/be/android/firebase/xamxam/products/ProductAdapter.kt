@@ -110,7 +110,7 @@ class ProductAdapter(private val storageName:String):
             when (resultDate) {
                 0 -> Color.GRAY
                 -1 -> Color.RED
-                else -> Color.BLUE
+                else -> Color.parseColor("#008577")
             })
     }
 

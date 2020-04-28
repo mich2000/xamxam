@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
  * link used for a normal black line: https://stackoverflow.com/questions/5049852/android-drawing-separator-divider-line-in-layout
  * link used to detect which sign in method it was: https://stackoverflow.com/questions/38619628/how-to-determine-if-a-firebase-user-is-signed-in-using-facebook-authentication/46014063#46014063
  */
-class Profile : Fragment(), IQuitable {
+class Profile : Fragment() {
     //================= VARIABLES ===================
     private lateinit var auth: FirebaseAuth
 
@@ -50,16 +50,11 @@ class Profile : Fragment(), IQuitable {
             btnDeleteAccount.setOnClickListener { deleteProfile() }
         }
         requireActivity().onBackPressedDispatcher.addCallback(this){
-            signOutDialog()
+            findNavController().navigate(R.id.profileToStorage)
         }
     }
 
     //================= FUNCTIONS ====================
-    override fun signOut() = findNavController().navigate(R.id.profileToStorage)
-
-    override fun signOutDialog() = Handy.yesNoDialog(requireContext(),"Go to storages"
-        , "Back to the storage page?", this::signOut)
-
     private fun updateUI(){
         Handy.editTitle(requireActivity(), user.displayName!!)
         nameText.text = user.displayName!!

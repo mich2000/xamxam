@@ -58,7 +58,7 @@ class StorageAdapter(storages:ArrayList<Storage>): RecyclerView.Adapter<StorageA
         if(storage.containsBadProducts()){
             holder.txtStorage!!.setTextColor(Color.RED)
         }else{
-            holder.txtStorage!!.setTextColor(Color.GREEN)
+            holder.txtStorage!!.setTextColor(Color.parseColor("#008577"))
         }
     }
 }

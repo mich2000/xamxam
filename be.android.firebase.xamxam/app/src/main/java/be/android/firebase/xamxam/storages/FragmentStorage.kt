@@ -19,6 +19,7 @@ import be.android.firebase.xamxam.classes.Handy
 import be.android.firebase.xamxam.classes.StatisticsHandy
 import be.android.firebase.xamxam.interfaces.IBasicRecycle
 import be.android.firebase.xamxam.interfaces.IQuitable
+import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
@@ -110,14 +111,17 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     private fun updateUserAndUi(){
         if(Handy.xamXamUser == null){
             docUser.get().addOnSuccessListener { documentSnapshot ->
-                if(documentSnapshot != null) {
-                        Handy.xamXamUser = documentSnapshot.toObject(XamUser::class.java)!!
-                        Handy.editTitle(requireActivity(),auth.currentUser!!.displayName!!)
-                        makeRecyclerAdapter()
-                        implementAddStorageFABbtn()
-                        setRecyclerViewItemTouchListener()
-                        implementSeeProducts()
-                        StorageService.enqueueWork(requireContext(), Intent())
+                if(documentSnapshot != null  ) {
+                        val user = documentSnapshot.toObject(XamUser::class.java)
+                        if (user != null) {
+                            Handy.xamXamUser = user
+                            Handy.editTitle(requireActivity(),auth.currentUser!!.displayName!!)
+                            makeRecyclerAdapter()
+                            implementAddStorageFABbtn()
+                            setRecyclerViewItemTouchListener()
+                            implementSeeProducts()
+                            StorageService.enqueueWork(requireContext(), Intent())
+                        }
                     }
                 }.addOnFailureListener {
                     Handy.toast(requireActivity(),requireContext(),"Auth failed")
@@ -133,13 +137,17 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     }
 
     override fun signOut(){
-        auth.signOut()
-        findNavController().navigate(R.id.toAuthFragment)
+        AuthUI.getInstance()
+            .signOut(requireContext())
+            .addOnSuccessListener {
+                findNavController().navigate(R.id.toAuthFragment)
+            }.addOnFailureListener {
+                Handy.toast(requireActivity(), requireContext(), "An error occured when logging out")
+            }
     }
 
     override fun signOutDialog(){
-        Handy.yesNoDialog(requireContext(),"Go to the Login/Register screen?", "Do you really wish to sign out " +
-                "and go to the Login/Register screen?",{signOut()})
+        Handy.yesNoDialog(requireContext(),"Do you wish to log out?",{signOut()})
     }
 
     //function to update the storages of the user
@@ -203,25 +211,28 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
      * the adapter of the storage list
      * **/
     private fun setRecyclerViewItemTouchListener(){
-        val itemTouchCallback = object : ItemTouchHelper.SimpleCallback(0,
-            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
+        val itemTouchCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,
                                 viewHolder1: RecyclerView.ViewHolder): Boolean = false
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val storage = Handy.xamXamUser!!.storages[viewHolder.adapterPosition]
-                docUser.update("storages", FieldValue.arrayRemove(storage))
-                if(Handy.xamXamUser!!.removeStorage(viewHolder.adapterPosition)){
-                    Handy.snack(activity!!,"Storage ${storage.name} is deleted")
+                Handy.yesNoDialog(requireContext(),"Remove the storage ${storage.name}?",{
+                    docUser.update("storages", FieldValue.arrayRemove(storage))
+                    if(Handy.xamXamUser!!.removeStorage(viewHolder.adapterPosition)){
+                        Handy.snack(requireActivity(),"Storage ${storage.name} is deleted")
+                        notifyChanges()
+                        StorageService.enqueueWork(requireContext(), Intent())
+                    }
+                },{
                     notifyChanges()
-                    StorageService.enqueueWork(context!!, Intent())
-                }
+                })
             }
         }
         ItemTouchHelper(itemTouchCallback).attachToRecyclerView(RecyclerViewStorage)
     }
 
     private fun basicItemDecorator(): RecyclerView.ItemDecoration{
-        return DividerItemDecoration(context, DividerItemDecoration.VERTICAL).also {
+        return DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL).also {
             it.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider)!!)
         }
     }
@@ -254,7 +265,9 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.Statistics -> {
-                StatisticsHandy.showStatistics(requireContext(), Handy.xamXamUser!!.statistics(auth.currentUser!!.displayName!!))
+                StatisticsHandy.showStatistics(requireContext(),
+                    Handy.xamXamUser!!.statistics()
+                )
                 true
             }
             R.id.Profile -> {

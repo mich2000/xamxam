@@ -152,8 +152,8 @@ data class XamUser(var storages:ArrayList<Storage> = ArrayList()){
      * function used to return statistics about the user these include the amount of
      * products/storages and minimum, maximum of peremption date.
      * **/
-    fun statistics(nameUser:String):StatisticsUser{
-        if(storages.size == 0) return StatisticsUser("Statistics User",0, 0,
+    fun statistics():StatisticsUser{
+        if(storages.size == 0) return StatisticsUser("Overview Storages",0, 0,
             "There are no storages and products","There are no storages and products")
         var sumProdcuts = 0
         var minDate:LocalDate = LocalDate.now()
@@ -166,8 +166,8 @@ data class XamUser(var storages:ArrayList<Storage> = ArrayList()){
                 if(bederfDatum.isAfter(maxDate)) maxDate = bederfDatum
             }
         }
-        return if(minDate == maxDate) StatisticsUser("Statistics $nameUser",storages.size,sumProdcuts,"Today","Today")
-        else StatisticsUser("Statistics User",storages.size, sumProdcuts, minDate.toStringDate(),maxDate.toStringDate())
+        return if(minDate == maxDate) StatisticsUser("Overview Storages",storages.size,sumProdcuts,"Today","Today")
+        else StatisticsUser("Overview Storages",storages.size, sumProdcuts, minDate.toStringDate(),maxDate.toStringDate())
     }
 
     /**
