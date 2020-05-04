@@ -58,7 +58,7 @@ Andere parameters als bv hun nutritieve waarden worden niet bijgehouden.
 
 ## Deployment (Publiceren van de app)
 
-Als publicatie platform heb ik Amazon app store gekozen, omdat deze gratis is. Bij deze zal ik ook mij logo en een paar screenshots van mijn app publiceren.
+Als publicatie platform heb ik Amazon app store gekozen, omdat deze gratis is. Bij deze zal ik ook mij logo en een paar screenshots van mijn app publiceren. Omdat ik Firebase gebruikt, zullen alle platformen waarop mijn app geïnstalleerd wordt Google Play Services nodig hebben. Omdat Amazon apparaten dit niet hebben, ga ik deze apparaten niet ondersteunen
 
 ## Wat heb ik geleerd ?
 

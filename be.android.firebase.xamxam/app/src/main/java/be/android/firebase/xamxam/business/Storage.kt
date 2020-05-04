@@ -27,8 +27,8 @@ data class Storage(var name:String = "", var productUnitList:ArrayList<ProductUn
             if(bederfDatum.isBefore(minDate))minDate = bederfDatum
             if(bederfDatum.isAfter(maxDate)) maxDate = bederfDatum
         }
-        return if(minDate == maxDate) StatisticsStorage("Statistics storage $name",productUnitList.size,"Today","Today")
-        else StatisticsStorage("Statistics storage $name",productUnitList.size, minDate.toStringDate(),maxDate.toStringDate())
+        return if(minDate == maxDate) StatisticsStorage("Overview storage $name",productUnitList.size,"Today","Today")
+        else StatisticsStorage("Overview storage $name",productUnitList.size, minDate.toStringDate(),maxDate.toStringDate())
     }
 
     /**

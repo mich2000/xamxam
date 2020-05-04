@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import be.android.firebase.xamxam.MainActivity
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.classes.Handy
-import be.android.firebase.xamxam.interfaces.IQuitable
 import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 

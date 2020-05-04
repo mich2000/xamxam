@@ -67,6 +67,7 @@
 ## week 9 - 2 uur 50 min:
 * les: 50 min
 * werken aan issues(UI app verbeteren, crash sign-in, andere kleur voor recyclerview items, UX verbeteren): 2 uur
+* Werken aan details aan app en op amazon app store: 30 min
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319
