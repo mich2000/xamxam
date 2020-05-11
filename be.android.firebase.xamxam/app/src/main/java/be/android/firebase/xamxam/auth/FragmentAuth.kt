@@ -4,13 +4,13 @@ package be.android.firebase.xamxam.auth
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import be.android.firebase.xamxam.R
+import be.android.firebase.xamxam.classes.CreditsHandy
 import be.android.firebase.xamxam.classes.Handy
+import be.android.firebase.xamxam.classes.StatisticsHandy
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -42,6 +42,7 @@ class FragmentAuth : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         auth = FirebaseAuth.getInstance()
         controlUserAuth()
         btnSignIn.setOnClickListener { createSignInIntent() }
@@ -102,6 +103,28 @@ class FragmentAuth : Fragment(){
             } else {
                 Handy.toast(requireActivity(),requireContext(),"Auth failed",true)
             }
+        }
+    }
+
+    //==================== MENU FUNCTIONS ====================
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.auth_menu, menu)
+    }
+
+    /**
+     * Function used to give actions to each menu item
+     * **/
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.credits -> {
+                CreditsHandy.showDialog(requireContext(), listOf(
+                    "for vegetable icon: www.flaticon.com/authors/wanicon",
+                    "for grain and dairy  icons: www.flaticon.com/authors/pixelmeetup",
+                    "for sugar, fat, beans, meat, fish, fruit icons: www.flaticon.com/authors/freepik"))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

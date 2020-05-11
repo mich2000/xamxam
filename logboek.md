@@ -68,6 +68,10 @@
 * les: 50 min
 * werken aan issues(UI app verbeteren, crash sign-in, andere kleur voor recyclerview items, UX verbeteren): 2 uur
 * Werken aan details aan app en op amazon app store: 30 min
+## week 10 - 3 uur 45 min:
+* les: 30 min
+* credits dialoogvenster geven aan auth en storage fragment, screenshots maken van de app, app beschrijving veranderen en screenshot updaten: 3 uur
+* Amazon app store beschrijving veranderen: 15 min
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319
@@ -123,3 +127,4 @@
 * link om SHA-1 te hebben: https://stackoverflow.com/questions/38297493/get-android-release-certificate-fingerprints
 * link om 1 enkel element te centeren: https://stackoverflow.com/questions/1957831/center-a-button-in-a-linear-layout
 * link om R8 te gebruiken om minder grote apk's te krijgen: https://developer.android.com/studio/build/shrink-code
+* link om versie nummer te krijgen van de applicatie: https://stackoverflow.com/questions/4616095/how-to-get-the-build-version-number-of-your-android-application

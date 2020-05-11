@@ -12,4 +12,10 @@
         android:icon="@drawable/ic_statistics_24px"
         android:title="Stat"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/credits"
+        android:checkable="false"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="credits"
+        app:showAsAction="ifRoom" />
 </menu>

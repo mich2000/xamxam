@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.business.Storage
 import be.android.firebase.xamxam.business.XamUser
+import be.android.firebase.xamxam.classes.CreditsHandy
 import be.android.firebase.xamxam.classes.Handy
 import be.android.firebase.xamxam.classes.StatisticsHandy
 import be.android.firebase.xamxam.interfaces.IBasicRecycle
@@ -260,7 +261,7 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
     }
 
     /**
-     * Function used to give actions to each
+     * Function used to give actions to each menu item
      * **/
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
@@ -272,6 +273,13 @@ class FragmentStorage : Fragment(), IQuitable, IBasicRecycle{
             }
             R.id.Profile -> {
                 findNavController().navigate(R.id.storageToProfile)
+                true
+            }
+            R.id.credits -> {
+                CreditsHandy.showDialog(requireContext(), listOf(
+                    "for vegetable icon: www.flaticon.com/authors/wanicon",
+                    "for grain and dairy  icons: www.flaticon.com/authors/pixelmeetup",
+                    "for sugar,fat, beans, meat, fish, fruit icons: www.flaticon.com/authors/freepik"))
                 true
             }
             else -> super.onOptionsItemSelected(item)

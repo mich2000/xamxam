@@ -9,10 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".storages.StorageService"
+            android:name="be.android.firebase.xamxam.storages.StorageService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
-        <activity android:name=".MainActivity">
+        <activity android:name="be.android.firebase.xamxam.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
