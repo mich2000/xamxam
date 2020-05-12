@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import be.android.firebase.xamxam.R
 import be.android.firebase.xamxam.classes.CreditsHandy
 import be.android.firebase.xamxam.classes.Handy
-import be.android.firebase.xamxam.classes.StatisticsHandy
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth

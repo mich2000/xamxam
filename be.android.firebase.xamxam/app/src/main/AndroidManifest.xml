@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="be.android.firebase.xamxam">
-
     <application
         android:icon="@drawable/logo_xamxam_foreground"
         android:label="@string/app_name"

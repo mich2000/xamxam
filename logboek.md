@@ -72,6 +72,10 @@
 * les: 30 min
 * credits dialoogvenster geven aan auth en storage fragment, screenshots maken van de app, app beschrijving veranderen en screenshot updaten: 3 uur
 * Amazon app store beschrijving veranderen: 15 min
+## week 11 - 30 min:
+* les : 30 min
+### Opmerkingen:
+* Het is mij gelukt om dit 
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319
