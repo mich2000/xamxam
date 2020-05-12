@@ -50,7 +50,5 @@ data class Storage(var name:String = "", var productUnitList:ArrayList<ProductUn
     /**
      * Returns the name and the amount of products that this storage has within
      * **/
-    override fun toString(): String {
-        return "$name - ${productUnitList.size}"
-    }
+    override fun toString(): String = "$name - ${productUnitList.size}"
 }

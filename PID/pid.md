@@ -117,3 +117,9 @@ Ik heb in totaal 9 publicatie pogingen gedaan. Er waren hierbij 2 redenen die el
 * Hoe ik Firebase kan gebruiken voor de authenticatie zijde.
 * Document-gebasseerde database van Firebase Firestore.
 * Hoe ik cloud functions(serverless functies) kan gebruiken in mijn firebase backend.
+
+## App onderhoud
+
+* Opletten op NullReferenceException, ik heb in mijn code veel niet-null(!!) garanties gezet. Dit is oke voor sommige gevallen maar ik heb hierdoor crashes in mijn app gehad, dus het zou beter zijn om voorzichtig met deze om te gaan.
+* Ik zou opletten op de datum en tijdgerelateerde taken, zeker het converteren van string naar datum en van datum to string. Dit is heel belangrijk voor de business logica.
+* De filter van recyclerview is iets dat snel fout kan gaan. Men moet zeker oppassen dat de index van items in de recyclerview wanneer deze geklikt zijn, dat deze juist is en geen ArrayOutOfBoundsException.
