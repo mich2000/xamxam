@@ -75,7 +75,8 @@
 ## week 11 - 30 min:
 * les : 30 min
 ### Opmerkingen:
-* Het is mij gelukt om dit 
+* Het is mij gelukt om mijn app te publiceren op amazon app store.
+## Geschatte total werktijd: 105 uren 45 minuten
 ## Bibliografie:
 * link README.md: https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
 * link: https://stackoverflow.com/questions/42571618/how-to-make-a-user-sign-out-in-firebase/56272319
