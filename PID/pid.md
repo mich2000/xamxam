@@ -60,7 +60,7 @@ Andere parameters als bv hun nutritieve waarden worden niet bijgehouden.
 
 Omdat ik als data opslage een document-gefocuste database(Firestore) gebruik, kan ik mijn model klasses deserialiseren/serialiseren met Firestore. Ik heb effectief geen model maar ik heb hier een uml diagram gemaakt met alleen de velden die worden gebruikt voor opslag.
 
-![ models die worden gebruikt voor data opslag ](fotos/models.png)
+![ models die worden gebruikt voor data opslag ](../fotos/models.png)
 
 ## Deployment (Publiceren van de app)
 
