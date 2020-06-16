@@ -109,19 +109,18 @@ Ik heb in totaal 9 publicatie pogingen gedaan. Er waren hierbij 2 redenen die el
 
 ## Wat heb ik geleerd ?
 
-* Hoe ik een app in amazon app store kan publiceren.
-* Hoe ik een recyclerview kan filteren wanneer een searchview verandert.
-* Hoe ik geavanceerde dialoogvensters kan maken en gebruiken.
-* Hoe ik een snack kan maken laten tonen en een action te implementeren in zijn button.
-* Hoe ik een service kan laten lopen.
-* Hoe ik Firebase kan gebruiken voor de authenticatie zijde.
-* Document-gebasseerde database van Firebase Firestore.
-* Hoe ik cloud functions(serverless functies) kan gebruiken in mijn firebase backend.
+* Hoe ik een app in amazon app store kan publiceren
+* Hoe ik een recyclerview kan filteren wanneer een searchview verandert
+* Hoe ik geavanceerde dialoogvensters kan maken en gebruiken
+* Hoe ik een snack kan maken laten tonen en een action te implementeren in zijn button
+* Hoe ik een service kan laten lopen
+* Hoe ik Firebase kan gebruiken voor de authenticatie zijde
+* Document-gebasseerde database van Firebase Firestore
+* Hoe ik cloud functions(serverless functies) kan gebruiken in mijn firebase backend
 
 ## App onderhoud
 
 * Opletten op NullReferenceException, ik heb in mijn code veel niet-null(!!) garanties gezet. Dit is oke voor sommige gevallen maar ik heb hierdoor crashes in mijn app gehad, dus het zou beter zijn om voorzichtig met deze om te gaan.
 * Ik zou opletten op de datum en tijdgerelateerde taken, zeker het converteren van string naar datum en van datum to string. Dit is heel belangrijk voor de business logica.
-* De filter van recyclerview is iets dat snel fout kan gaan. Men moet zeker oppassen dat de index van items in de recyclerview wanneer deze geklikt zijn, dat deze juist is en geen ArrayOutOfBoundsException.
-* De android versie is ook vrij hoog, dit kan het aantal gebruikers beperken.
+* De filter van de recyclerview is iets dat snel fout kan gaan. Men moet zeker oppassen op de index van items in de recyclerview wanneer deze geklikt zijn, dat deze juist is en geen ArrayOutOfBoundsException.
 * Andere backend systeem zoeken, Firebase heeft google play services nodig om te werken dit heeft als gevolg amazon smartphones niet beschikbaar maken een andere backend systeem zou beter geschikt zijn.
