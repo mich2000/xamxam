@@ -123,4 +123,9 @@ Ik heb in totaal 9 publicatie pogingen gedaan. Er waren hierbij 2 redenen die el
 * Opletten op NullReferenceException, ik heb in mijn code veel niet-null(!!) garanties gezet. Dit is oke voor sommige gevallen maar ik heb hierdoor crashes in mijn app gehad, dus het zou beter zijn om voorzichtig met deze om te gaan.
 * Ik zou opletten op de datum en tijdgerelateerde taken, zeker het converteren van string naar datum en van datum to string. Dit is heel belangrijk voor de business logica.
 * De filter van de recyclerview is iets dat snel fout kan gaan. Men moet zeker oppassen op de index van items in de recyclerview wanneer deze geklikt zijn, dat deze juist is en geen ArrayOutOfBoundsException.
-* Andere backend systeem zoeken, Firebase heeft google play services nodig om te werken dit heeft als gevolg amazon smartphones niet beschikbaar maken een andere backend systeem zou beter geschikt zijn.
+
+## App uitbreiden
+
+* Andere backend systeem zoeken, Firebase ondersteurnt alleen smartphones met google play services. Daardoor kunnen wij niet alle Android smartphones bereiken.
+* Iconen gebruiken voor opslagplaatsen om deze gemakkelijker te identificeren.
+* Meer authenticatie providers toevoegen. Bv: Github, Outlook, gsm, ... enz
