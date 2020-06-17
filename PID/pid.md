@@ -123,6 +123,8 @@ Ik heb in totaal 9 publicatie pogingen gedaan. Er waren hierbij 2 redenen die el
 * Opletten op NullReferenceException, ik heb in mijn code veel niet-null(!!) garanties gezet. Dit is oke voor sommige gevallen maar ik heb hierdoor crashes in mijn app gehad, dus het zou beter zijn om voorzichtig met deze om te gaan.
 * Ik zou opletten op de datum en tijdgerelateerde taken, zeker het converteren van string naar datum en van datum to string. Dit is heel belangrijk voor de business logica.
 * De filter van de recyclerview is iets dat snel fout kan gaan. Men moet zeker oppassen op de index van items in de recyclerview wanneer deze geklikt zijn, dat deze juist is en geen ArrayOutOfBoundsException.
+Release versie => R8 obfuscatie voor smalle apk en security
+* Wanneer de release versie vrij wordt gelaten, zou deze altijd R8 obfuscatie moeten hebben doorgaan. Zodat deze lighter is in file grootte en is de code minder leesbaar voor reverse engineering.
 
 ## App uitbreiden
 
