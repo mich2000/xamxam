@@ -88,17 +88,6 @@ author for sugar,fat, beans, meat, fish, fruit icons: www.flaticon.com/authors/f
 * User can delete his account
 * Notification notifying user of storages where bad products lie
 
-### Technische details
-
-* Size: 2.7MB
-* Version:
-* Developed By: Michael Hertsens
-* Application Permissions:
-* Access information about networks
-    * Open network sockets
-    * Minimum Operating System: Android 8.0.0
-* Approximate Download Time: Less than 30 seconds
-
 ### Publicatie problemen
 
 Ik heb in totaal 9 publicatie pogingen gedaan. Er waren hierbij 2 redenen die elk kwamen. De 1ste reden was dat mijn app crashte wanneer het amazon team mijn app wou testen en de 2de reden was omdat de metadata(beschrijvingen, kenmerken van de app) niet juist was.
@@ -106,17 +95,6 @@ Ik heb in totaal 9 publicatie pogingen gedaan. Er waren hierbij 2 redenen die el
 1ste reden heb ik opgelost door mijn release versie te debuggen. Ik heb ondervonden dat mijn app vaak crashte door het pakken van de document data van FireStore, dit heb ik opgelost om de variable die deze document pakt te controleren of deze niet null is. De andere ding dat ik heb gedaan is om amazon toestellen eruit te zetten en deze niet te ondersteunen omdat Firebase google services nodig heeft op het toestel. In dit geval hebben amazon toestellen deze niet.
 
 2de reden was omdat de app beschrijving en kenmerken dat ik had geschreven dat deze niet accuraat of juist waren. Ik heb opgelost door mijn kenmerken te bewerken ik had een paar kenmerken die niet hetzelfde waren als in mijn app. Nadat ik dit had gedaan werd mijn app geaccepteerd in de amazon app store.
-
-## Wat heb ik geleerd ?
-
-* Hoe ik een app in amazon app store kan publiceren
-* Hoe ik een recyclerview kan filteren wanneer een searchview verandert
-* Hoe ik geavanceerde dialoogvensters kan maken en gebruiken
-* Hoe ik een snack kan maken laten tonen en een action te implementeren in zijn button
-* Hoe ik een service kan laten lopen
-* Hoe ik Firebase kan gebruiken voor de authenticatie zijde
-* Document-gebasseerde database van Firebase Firestore
-* Hoe ik cloud functions(serverless functies) kan gebruiken in mijn firebase backend
 
 ## App onderhoud
 
