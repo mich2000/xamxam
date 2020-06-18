@@ -1,6 +1,6 @@
-cd .\PID
+Set-Location .\PID
 .\updater.ps1
-cd ..
+Set-Location ..
 
 git add .
 git commit -m $args[0]
