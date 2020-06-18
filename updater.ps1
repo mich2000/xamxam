@@ -1,5 +1,5 @@
 cd .\PID
-.\PID\updater.ps1
+.\updater.ps1
 cd ..
 
 git add .
