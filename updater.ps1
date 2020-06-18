@@ -1,4 +1,4 @@
-markdown-pdf .\documentatie.md -s .\github.css
+.\PID\updater.ps1
 
 git add .
 git commit -m $args[0]
